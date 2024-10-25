@@ -1,0 +1,9 @@
+package SimpleCalculator;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		SimpleCalculator simple= new SimpleCalculator();
+		simple.calculatorUI();
+	}
+}

@@ -1,0 +1,129 @@
+package SimpleCalculator;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Calculator extends JFrame implements ActionListener {
+
+    // Components of the calculator
+    private JTextField display;
+    private JButton[] numberButtons = new JButton[10];
+    private JButton[] operatorButtons = new JButton[5];
+    private JButton equalsButton, clearButton;
+    private String currentOperator;
+    private double num1, num2;
+
+    public Calculator() {
+        // Set up the frame
+        setTitle("Calculator");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        // Create display field
+        display = new JTextField();
+        display.setEditable(false);
+        display.setFont(new Font("Arial", Font.PLAIN, 36));
+        add(display, BorderLayout.NORTH);
+
+        // Create panel for buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(4, 4, 10, 10));
+
+        // Initialize number buttons (0-9)
+        for (int i = 0; i <= 9; i++) {
+            numberButtons[i] = new JButton(String.valueOf(i));
+            numberButtons[i].setFont(new Font("Arial", Font.PLAIN, 24));
+            numberButtons[i].addActionListener(this);
+            buttonPanel.add(numberButtons[i]);
+        }
+
+        // Initialize operator buttons (+, -, *, /)
+        operatorButtons[0] = new JButton("+");
+        operatorButtons[1] = new JButton("-");
+        operatorButtons[2] = new JButton("*");
+        operatorButtons[3] = new JButton("/");
+        for (int i = 0; i < 4; i++) {
+            operatorButtons[i].setFont(new Font("Arial", Font.PLAIN, 24));
+            operatorButtons[i].addActionListener(this);
+            buttonPanel.add(operatorButtons[i]);
+        }
+
+        // Create equals and clear buttons
+        equalsButton = new JButton("=");
+        equalsButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        equalsButton.addActionListener(this);
+        buttonPanel.add(equalsButton);
+
+        clearButton = new JButton("Clear");
+        clearButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        clearButton.addActionListener(this);
+        buttonPanel.add(clearButton);
+
+        add(buttonPanel, BorderLayout.CENTER);
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+
+        // Handle number button clicks
+        for (int i = 0; i <= 9; i++) {
+            if (command.equals(String.valueOf(i))) {
+                display.setText(display.getText() + i);
+            }
+        }
+
+        // Handle operator button clicks (+, -, *, /)
+        for (int i = 0; i < 4; i++) {
+            if (command.equals(operatorButtons[i].getText())) {
+                num1 = Double.parseDouble(display.getText());
+                currentOperator = command;
+                display.setText("");  // Clear the display for second number
+            }
+        }
+
+        // Handle equals button
+        if (command.equals("=")) {
+            num2 = Double.parseDouble(display.getText());
+            double result = 0;
+
+            switch (currentOperator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                    } else {
+                        display.setText("Error: Div by 0");
+                        return;
+                    }
+                    break;
+            }
+            display.setText(String.valueOf(result));
+        }
+
+        // Handle clear button
+        if (command.equals("Clear")) {
+            display.setText("");
+            num1 = 0;
+            num2 = 0;
+            currentOperator = null;
+        }
+    }
+
+    public static void main(String[] args) {
+        new Calculator();
+    }
+}
+

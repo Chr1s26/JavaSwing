@@ -1,0 +1,88 @@
+package SimpleCalculator;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class SimpleCalculator {
+	
+	private JFrame baseWindow;
+	private JPanel panel;
+	private JLabel label1;
+	private JLabel label2;
+	private JLabel label3;
+	private JLabel label4;
+	private JLabel label5;
+	private JLabel label6;
+	private JLabel label7;
+	private JLabel label8;
+	private JLabel label9;
+	private JLabel label10;
+	private JLabel label11;
+	private JLabel label12;
+	private JLabel label13;
+	private JLabel label14;
+	private JLabel label15;
+	private JLabel label16;
+	
+	private JTextField answer;
+	
+	
+	public void initializeBaseFrame() {
+		
+		this.baseWindow = new JFrame("Simple Calculator");
+		this.baseWindow.setLayout(new BorderLayout());
+		this.baseWindow.setLocation(200,300);
+		this.baseWindow.setSize(453,250);
+		this.baseWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.baseWindow.setVisible(true);
+		
+	}
+	
+	public void calculatorUI() {
+		
+		initializeBaseFrame();
+		
+		panel = new JPanel(new GridLayout(4,4));
+		label1 = new JLabel("7");
+		label2 = new JLabel("8");
+		label3 = new JLabel("9");
+		label4 = new JLabel("+");
+		label5 = new JLabel("4");
+		label6 = new JLabel("5");
+		label7 = new JLabel("6");
+		label8 = new JLabel("-");
+		label9 = new JLabel("1");
+		label10 = new JLabel("2");
+		label11 = new JLabel("3");
+		label12 = new JLabel("x");
+		label13 = new JLabel("0");
+		label14 = new JLabel("C");
+		label15 = new JLabel("=");
+		label16 = new JLabel("/");
+		
+		panel.add(label1);
+		panel.add(label2);
+		panel.add(label3);
+		panel.add(label4);
+		panel.add(label5);
+		panel.add(label6);
+		panel.add(label7);
+		panel.add(label8);
+		panel.add(label9);
+		panel.add(label10);
+		panel.add(label11);
+		panel.add(label12);
+		panel.add(label13);
+		panel.add(label14);
+		panel.add(label15);
+		panel.add(label16);
+		
+		this.baseWindow.add(panel,BorderLayout.SOUTH);
+	}
+	
+}

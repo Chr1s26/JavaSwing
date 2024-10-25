@@ -1,0 +1,103 @@
+package SimpleCalculator;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class SimpleCalculator {
+
+	private JFrame baseWindow;
+	private JPanel panel;
+	private JButton label1;
+	private JButton label2;
+	private JButton label3;
+	private JButton label4;
+	private JButton label5;
+	private JButton label6;
+	private JButton label7;
+	private JButton label8;
+	private JButton label9;
+	private JButton label10;
+	private JButton label11;
+	private JButton label12;
+	private JButton label13;
+	private JButton label14;
+	private JButton label15;
+	private JButton label16;
+
+	private JTextField answer;
+
+	public void calculatorUI() {
+
+		initializeBaseFrame();
+		initializeTextField();
+		initializePanel();
+	}
+
+	public void initializeTextField() {
+		answer = new JTextField();
+		answer.setEditable(false);
+		answer.setFont(new Font("Arial", Font.PLAIN, 36));
+		this.baseWindow.add(answer, BorderLayout.NORTH);
+	}
+
+	public void initializePanel() {
+
+		panel = new JPanel(new GridLayout(4, 4, 10, 10));
+		
+
+		label1 = new JButton("7");
+		label2 = new JButton("8");
+		label3 = new JButton("9");
+		label4 = new JButton("+");
+		label5 = new JButton("4");
+		label6 = new JButton("5");
+		label7 = new JButton("6");
+		label8 = new JButton("-");
+		label9 = new JButton("1");
+		label10 = new JButton("2");
+		label11 = new JButton("3");
+		label12 = new JButton("x");
+		label13 = new JButton("0");
+		label14 = new JButton("C");
+		label15 = new JButton("=");
+		label16 = new JButton("/");
+		
+
+		panel.add(label1);
+		panel.add(label2);
+		panel.add(label3);
+		panel.add(label4);
+		panel.add(label5);
+		panel.add(label6);
+		panel.add(label7);
+		panel.add(label8);
+		panel.add(label9);
+		panel.add(label10);
+		panel.add(label11);
+		panel.add(label12);
+		panel.add(label13);
+		panel.add(label14);
+		panel.add(label15);
+		panel.add(label16);
+
+		this.baseWindow.add(panel, BorderLayout.SOUTH);
+	}
+
+	public void initializeBaseFrame() {
+
+		this.baseWindow = new JFrame("Simple Calculator");
+		this.baseWindow.setLayout(new BorderLayout());
+		this.baseWindow.setLocation(200, 300);
+		this.baseWindow.setSize(453, 250);
+		this.baseWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.baseWindow.setVisible(true);
+
+	}
+
+}

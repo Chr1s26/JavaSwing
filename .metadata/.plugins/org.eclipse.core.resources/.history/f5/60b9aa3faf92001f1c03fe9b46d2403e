@@ -1,0 +1,46 @@
+package SimpleCalculator;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class SimpleCalculator {
+
+	private JFrame baseWindow;
+	private JPanel panel;
+	private JTextField answer;
+	private JButton[] numberButtons = new JButton[10];
+	private JButton[] operatorButtons = new JButton[6];
+	
+
+	public void calculatorUI() {
+
+		initializeBaseFrame();
+		initializeComponent();
+	}
+
+	public void initializeComponent() {
+		answer = new JTextField();
+		answer.setEditable(false);
+		answer.setFont(new Font("Arial", Font.PLAIN, 36));
+		this.baseWindow.add(answer, BorderLayout.NORTH);
+		
+		
+	}
+	
+	public void initializeBaseFrame() {
+		this.baseWindow = new JFrame("Simple Calculator");
+		this.baseWindow.setLayout(new BorderLayout());
+		this.baseWindow.setLocation(200, 300);
+		this.baseWindow.setSize(400, 600);
+		this.baseWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.baseWindow.setVisible(true);
+
+	}
+
+}

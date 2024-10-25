@@ -1,0 +1,12 @@
+package Exercises;
+
+import javax.swing.JFrame;
+
+public class SimpleCalculator {
+	
+	public JFrame baseWindow;
+	
+	private void initializeBaseFrame() {
+		this.baseWindow = new JFrame("Simple Calculator");
+	}
+}

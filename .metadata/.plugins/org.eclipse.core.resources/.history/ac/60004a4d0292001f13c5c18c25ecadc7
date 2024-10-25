@@ -1,0 +1,20 @@
+package SimpleCalculator;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+
+public class SimpleCalculator {
+	
+	public JFrame baseWindow;
+	
+	private void initializeBaseFrame() {
+		this.baseWindow = new JFrame("Simple Calculator");
+		this.baseWindow.setLayout(new BorderLayout());
+		this.baseWindow.setLocation(200,300);
+		this.baseWindow.setSize(453,250);
+		this.baseWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.baseWindow.setVisible(true);
+	}
+	
+}
